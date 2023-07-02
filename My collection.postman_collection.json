@@ -1,0 +1,1585 @@
+{
+	"info": {
+		"_postman_id": "0fe796ca-3deb-4f15-9b66-d358d63c69f2",
+		"name": "My collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18563608"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"myuser\",\r\n    \"password\": \"xxxxxx\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}://{{app}}{{host}}{{port}}/{{baseUri}}/register",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{app}}{{host}}{{port}}"
+							],
+							"path": [
+								"{{baseUri}}",
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "201",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"myuser\",\r\n    \"password\": \"xxxxxx\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{protocol}}://{{app}}{{host}}{{port}}/{{baseUri}}/register",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{app}}{{host}}{{port}}"
+									],
+									"path": [
+										"{{baseUri}}",
+										"register"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 02 Jul 2023 11:08:01 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.11.0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "39"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User created successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"myuser\",\r\n    \"password\": \"xxxxxx\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}://{{app}}{{host}}{{port}}/{{baseUri}}/token/",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{app}}{{host}}{{port}}"
+							],
+							"path": [
+								"{{baseUri}}",
+								"token",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "401",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"{{username}}\",\r\n    \"password\": \"{{passwordX}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{protocol}}://{{host}}:{{port}}/{{baseUri}}/token/",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"{{baseUri}}",
+										"token",
+										""
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 17 Oct 2022 14:10:29 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.7"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "WWW-Authenticate",
+									"value": "Bearer realm=\"api\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "63"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"detail\": \"No active account found with the given credentials\"\n}"
+						},
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"{{username}}\",\r\n    \"password\": \"{{password}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{protocol}}://{{host}}:{{port}}/{{baseUri}}/token/",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"{{baseUri}}",
+										"token",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 18 Oct 2022 13:29:05 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.7"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "523"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTY2NjE4NjE0NSwiaWF0IjoxNjY2MDk5NzQ1LCJqdGkiOiIyNmU0YWE2NmU2YTg0MTQ0ODM5OTlmZTRjMTAzMWFkZiIsInVzZXJfaWQiOjEsIm5hbWUiOiJhcnRoeSJ9.KrmGSkxmSgRp5mfT4wNcMAWnUeAJz1qZPtszPepZ274\",\n    \"access\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY2MTAwMDQ1LCJpYXQiOjE2NjYwOTk3NDUsImp0aSI6ImE1ZjE0OWMyYzIyZTRkZTJiZmM5Mzg5NjgzOWZmMjFlIiwidXNlcl9pZCI6MSwibmFtZSI6ImFydGh5In0.phcAoGJDJ9ZmEdPLdTXgO5EWx4dkkhDjmxE-so8f-7s\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Refresh Token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"refresh\": \"{{refreshToken}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}://{{app}}{{host}}{{port}}/{{baseUri}}/token/refresh/",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{app}}{{host}}{{port}}"
+							],
+							"path": [
+								"{{baseUri}}",
+								"token",
+								"refresh",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "401",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"refresh\": \"{{refreshTokenX}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{protocol}}://{{host}}:{{port}}/{{baseUri}}/token/refresh/",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"{{baseUri}}",
+										"token",
+										"refresh",
+										""
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 17 Oct 2022 14:08:07 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.7"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "WWW-Authenticate",
+									"value": "Bearer realm=\"api\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "65"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"detail\": \"Token is invalid or expired\",\n    \"code\": \"token_not_valid\"\n}"
+						},
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"refresh\": \"{{refreshToken}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{protocol}}://{{host}}:{{port}}/{{baseUri}}/token/refresh/",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"{{baseUri}}",
+										"token",
+										"refresh",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 18 Oct 2022 13:29:53 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.7"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "523"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"access\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY2MTAwMDkzLCJpYXQiOjE2NjYwOTk3NDUsImp0aSI6ImE5ODI5ODEwMTA1NzRlOGQ4YWY5ZjE0NzBkZGU5NDhiIiwidXNlcl9pZCI6MSwibmFtZSI6ImFydGh5In0.rPz5V-h3TL20S0F22PP82qi9pErs9WPgIUhWmN7Q6HM\",\n    \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTY2NjE4NjE5MywiaWF0IjoxNjY2MDk5NzkzLCJqdGkiOiJiMGJhYTUyYTJjNmE0MjQ5YmFkMWY0ODFjZTc1ZmUyNyIsInVzZXJfaWQiOjEsIm5hbWUiOiJhcnRoeSJ9.jRgeySD-ovIinwpvojTXoU3qFXo0mKhkr-NH573fDQM\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "My endpoint",
+			"item": [
+				{
+					"name": "My endpoint by ID",
+					"item": [
+						{
+							"name": "My endpoint by ID",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{protocol}}://{{app}}{{host}}{{port}}/{{baseUri}}/my-endpoint/:id",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{app}}{{host}}{{port}}"
+									],
+									"path": [
+										"{{baseUri}}",
+										"my-endpoint",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "4b475f5f-c149-475b-8cc5-d245033e835e"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "404",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{protocol}}://{{app}}{{host}}{{port}}/{{baseUri}}/my-endpoint/:id",
+											"protocol": "{{protocol}}",
+											"host": [
+												"{{app}}{{host}}{{port}}"
+											],
+											"path": [
+												"{{baseUri}}",
+												"my-endpoint",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "034ed24d-6213-4f9d-9c0a-e95d21bd1f82"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sun, 02 Jul 2023 11:51:20 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "WSGIServer/0.2 CPython/3.11.0"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Vary",
+											"value": "Accept, Origin"
+										},
+										{
+											"key": "Allow",
+											"value": "DELETE, OPTIONS"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Length",
+											"value": "78"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "same-origin"
+										},
+										{
+											"key": "Cross-Origin-Opener-Policy",
+											"value": "same-origin"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Record with id '034ed24d-6213-4f9d-9c0a-e95d21bd1f82' not found.\"\n}"
+								},
+								{
+									"name": "204",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{protocol}}://{{app}}{{host}}{{port}}/{{baseUri}}/my-endpoint/:id",
+											"protocol": "{{protocol}}",
+											"host": [
+												"{{app}}{{host}}{{port}}"
+											],
+											"path": [
+												"{{baseUri}}",
+												"my-endpoint",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "034ed24d-6213-4f9d-9c0a-e95d21bd1f82"
+												}
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sun, 02 Jul 2023 11:52:30 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "WSGIServer/0.2 CPython/3.11.0"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Vary",
+											"value": "Accept, Origin"
+										},
+										{
+											"key": "Allow",
+											"value": "DELETE, OPTIONS"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Length",
+											"value": "2"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "same-origin"
+										},
+										{
+											"key": "Cross-Origin-Opener-Policy",
+											"value": "same-origin"
+										}
+									],
+									"cookie": [],
+									"body": "{}"
+								}
+							]
+						},
+						{
+							"name": "My endpoint by ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{protocol}}://{{app}}{{host}}{{port}}/{{baseUri}}/my-endpoint/:id",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{app}}{{host}}{{port}}"
+									],
+									"path": [
+										"{{baseUri}}",
+										"my-endpoint",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "99a985dd-18f4-4424-adf8-2f282eb4ab00"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "200",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{protocol}}://{{app}}{{host}}{{port}}/{{baseUri}}/my-endpoint/:id",
+											"protocol": "{{protocol}}",
+											"host": [
+												"{{app}}{{host}}{{port}}"
+											],
+											"path": [
+												"{{baseUri}}",
+												"my-endpoint",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "99a985dd-18f4-4424-adf8-2f282eb4ab00"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sun, 02 Jul 2023 12:00:35 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "WSGIServer/0.2 CPython/3.11.0"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Vary",
+											"value": "Accept, Origin"
+										},
+										{
+											"key": "Allow",
+											"value": "GET, DELETE, HEAD, OPTIONS"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Length",
+											"value": "104"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "same-origin"
+										},
+										{
+											"key": "Cross-Origin-Opener-Policy",
+											"value": "same-origin"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"id\": \"99a985dd-18f4-4424-adf8-2f282eb4ab00\",\n    \"name\": \"My row\",\n    \"created_at\": \"2023-07-02T10:17:06.776633Z\"\n}"
+								}
+							]
+						},
+						{
+							"name": "My endpoint by ID",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearer}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"My updated row\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{protocol}}://{{app}}{{host}}{{port}}/{{baseUri}}/my-endpoint/:id",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{app}}{{host}}{{port}}"
+									],
+									"path": [
+										"{{baseUri}}",
+										"my-endpoint",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "efecf74b-cd3f-4bf4-ae3d-ead0da1d80f2"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "400",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"nameX\": \"My updated row\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{protocol}}://{{app}}{{host}}{{port}}/{{baseUri}}/my-endpoint/:id",
+											"protocol": "{{protocol}}",
+											"host": [
+												"{{app}}{{host}}{{port}}"
+											],
+											"path": [
+												"{{baseUri}}",
+												"my-endpoint",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "efecf74b-cd3f-4bf4-ae3d-ead0da1d80f2"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sun, 02 Jul 2023 20:30:59 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "WSGIServer/0.2 CPython/3.11.0"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Vary",
+											"value": "Accept, Origin"
+										},
+										{
+											"key": "Allow",
+											"value": "GET, PUT, DELETE, HEAD, OPTIONS"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Length",
+											"value": "46"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "same-origin"
+										},
+										{
+											"key": "Cross-Origin-Opener-Policy",
+											"value": "same-origin"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"error\": {\n        \"name\": [\n            \"This field is required.\"\n        ]\n    }\n}"
+								},
+								{
+									"name": "401",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"nameX\": \"My updated row\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{protocol}}://{{app}}{{host}}{{port}}/{{baseUri}}/my-endpoint/:id",
+											"protocol": "{{protocol}}",
+											"host": [
+												"{{app}}{{host}}{{port}}"
+											],
+											"path": [
+												"{{baseUri}}",
+												"my-endpoint",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "efecf74b-cd3f-4bf4-ae3d-ead0da1d80f2"
+												}
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sun, 02 Jul 2023 20:31:19 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "WSGIServer/0.2 CPython/3.11.0"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "WWW-Authenticate",
+											"value": "Bearer realm=\"api\""
+										},
+										{
+											"key": "Vary",
+											"value": "Accept, Origin"
+										},
+										{
+											"key": "Allow",
+											"value": "GET, PUT, DELETE, HEAD, OPTIONS"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Length",
+											"value": "58"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "same-origin"
+										},
+										{
+											"key": "Cross-Origin-Opener-Policy",
+											"value": "same-origin"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"detail\": \"Authentication credentials were not provided.\"\n}"
+								},
+								{
+									"name": "200",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"My updated row\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{protocol}}://{{app}}{{host}}{{port}}/{{baseUri}}/my-endpoint/:id",
+											"protocol": "{{protocol}}",
+											"host": [
+												"{{app}}{{host}}{{port}}"
+											],
+											"path": [
+												"{{baseUri}}",
+												"my-endpoint",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "efecf74b-cd3f-4bf4-ae3d-ead0da1d80f2"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sun, 02 Jul 2023 22:09:26 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "WSGIServer/0.2 CPython/3.11.0"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Vary",
+											"value": "Accept, Origin"
+										},
+										{
+											"key": "Allow",
+											"value": "GET, PATCH, DELETE, HEAD, OPTIONS"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Length",
+											"value": "155"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "same-origin"
+										},
+										{
+											"key": "Cross-Origin-Opener-Policy",
+											"value": "same-origin"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"id\": \"efecf74b-cd3f-4bf4-ae3d-ead0da1d80f2\",\n    \"name\": \"My updated row\",\n    \"created_at\": \"2023-07-02T10:22:37.598337Z\",\n    \"updated_at\": \"2023-07-02T22:09:26.025474Z\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "My endpoint",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{protocol}}://{{app}}{{host}}{{port}}/{{baseUri}}/my-endpoint",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{app}}{{host}}{{port}}"
+							],
+							"path": [
+								"{{baseUri}}",
+								"my-endpoint"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{protocol}}://{{app}}{{host}}{{port}}/{{baseUri}}/my-endpoint",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{app}}{{host}}{{port}}"
+									],
+									"path": [
+										"{{baseUri}}",
+										"my-endpoint"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 02 Jul 2023 10:19:18 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.11.0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "161"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"total\": 1,\n    \"from\": 1,\n    \"to\": 1,\n    \"is_last_page\": true,\n    \"data\": [\n        {\n            \"id\": \"99a985dd-18f4-4424-adf8-2f282eb4ab00\",\n            \"name\": \"My row\",\n            \"created_at\": \"2023-07-02T10:17:06.776633Z\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "My endpoint",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"My row 2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}://{{app}}{{host}}{{port}}/{{baseUri}}/my-endpoint",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{app}}{{host}}{{port}}"
+							],
+							"path": [
+								"{{baseUri}}",
+								"my-endpoint"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "400 Already Exist",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"My row\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{protocol}}://{{app}}{{host}}{{port}}/{{baseUri}}/my-endpoint",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{app}}{{host}}{{port}}"
+									],
+									"path": [
+										"{{baseUri}}",
+										"my-endpoint"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 02 Jul 2023 10:17:40 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.11.0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "90"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Record 'My row' with ID '99a985dd-18f4-4424-adf8-2f282eb4ab00' already exists.\"\n}"
+						},
+						{
+							"name": "400 Bad Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nameX\": \"My row\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{protocol}}://{{app}}{{host}}{{port}}/{{baseUri}}/my-endpoint",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{app}}{{host}}{{port}}"
+									],
+									"path": [
+										"{{baseUri}}",
+										"my-endpoint"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 02 Jul 2023 10:21:54 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.11.0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "46"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": {\n        \"name\": [\n            \"This field is required.\"\n        ]\n    }\n}"
+						},
+						{
+							"name": "201",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"My row 2\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{protocol}}://{{app}}{{host}}{{port}}/{{baseUri}}/my-endpoint",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{app}}{{host}}{{port}}"
+									],
+									"path": [
+										"{{baseUri}}",
+										"my-endpoint"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 02 Jul 2023 10:22:37 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.11.0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "53"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Record 'My row 2' created successfully.\"\n}"
+						},
+						{
+							"name": "401",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"My row 3\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{protocol}}://{{app}}{{host}}{{port}}/{{baseUri}}/my-endpoint",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{app}}{{host}}{{port}}"
+									],
+									"path": [
+										"{{baseUri}}",
+										"my-endpoint"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 02 Jul 2023 11:09:52 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.11.0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "WWW-Authenticate",
+									"value": "Bearer realm=\"api\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "183"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"detail\": \"Given token not valid for any token type\",\n    \"code\": \"token_not_valid\",\n    \"messages\": [\n        {\n            \"token_class\": \"AccessToken\",\n            \"token_type\": \"access\",\n            \"message\": \"Token is invalid or expired\"\n        }\n    ]\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Health check",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{protocol}}://{{app}}{{host}}{{port}}/{{baseUri}}/health-check",
+					"protocol": "{{protocol}}",
+					"host": [
+						"{{app}}{{host}}{{port}}"
+					],
+					"path": [
+						"{{baseUri}}",
+						"health-check"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{protocol}}://{{app}}{{host}}{{port}}/{{baseUri}}/health-check",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{app}}{{host}}{{port}}"
+							],
+							"path": [
+								"{{baseUri}}",
+								"health-check"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 02 Jul 2023 09:16:16 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.11.0"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "16"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"OK\"\n}"
+				}
+			]
+		}
+	]
+}
