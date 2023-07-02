@@ -13,6 +13,7 @@
 |Usage|Name|Version|
 |-|-|-|
 |Framework|Django|4.2.2
+|Language|Python|3.11.0
 
 ## Architecture
 
