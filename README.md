@@ -37,19 +37,25 @@
 - requirements.txt
 - My collection.postman_collection.json
 
+## Specification (OAS v3.1)
+
+- [View Swagger](https://app.swaggerhub.com/apis-docs/ARTHMAYER/api-template/1.0.0)
+
+- [View Yaml](./specification.yml)
+
 ## Installation
 
-1. Clone the repo
+- Clone the repo
 ```bash
 git clone https://github.com/Zararthustra/Starter-pack_Django
 ```
 
-2. Install dependencies
+- Install dependencies
 ```bash
 pip install -r requirements.txt
 ```
 
-3. Make database migration (in `src`)
+- Make database migration (in `src`)
 ```bash
 python manage.py makemigrations my_app
 ```
@@ -57,7 +63,12 @@ python manage.py makemigrations my_app
 python manage.py migrate
 ```
 
-4. Run server (in `src`)
+- Run tests (in `src`)
+```bash
+python manage.py test my_app --verbosity=2
+```
+
+- Run server (in `src`)
 ```bash
 python manage.py runserver 0.0.0.0:8000
 ```
