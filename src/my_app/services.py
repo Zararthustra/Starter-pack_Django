@@ -6,16 +6,17 @@ from rest_framework import status
 from .models import MyModel
 
 
-class ToolkitService():
+class ToolkitService:
     """
-        Toolkit service class
+    Toolkit service class
     """
 
+    @staticmethod
     def paginate(*, page_number: int, range: int, records: list[object]):
         """
-            Paginate queryset
+        Paginate queryset
 
-            Returns: pagination tuple
+        Returns: pagination tuple
         """
 
         paginated_records = Paginator(records, range)
@@ -27,26 +28,28 @@ class ToolkitService():
         return page, has_next, start_index, end_index, total_records
 
 
-class MyService():
+class MyService:
     """
-        My service class
+    My service class
     """
 
+    @staticmethod
     def list():
         """
-            List
+        List
 
-            Returns: Records
+        Returns: Records
         """
-        records = MyModel.objects.all().order_by('-created_at')
+        records = MyModel.objects.all().order_by("-created_at")
 
         return records
 
+    @staticmethod
     def detail(*, id: str):
         """
-            Detail
+        Detail
 
-            Returns: Record, Status
+        Returns: Record, Status
         """
         try:
             record = MyModel.objects.get(id=id)
@@ -55,11 +58,12 @@ class MyService():
             print(e)
             return None, status.HTTP_404_NOT_FOUND
 
+    @staticmethod
     def create(*, data: object):
         """
-            Create if not exist
+        Create if not exist
 
-            Returns: JSON, Status
+        Returns: JSON, Status
         """
         record, created = MyModel.objects.get_or_create(
             name=data["name"],
@@ -72,11 +76,12 @@ class MyService():
             "message": f"Record '{record.name}' created successfully."
         }, status.HTTP_201_CREATED
 
+    @staticmethod
     def update(*, id: str, data: object):
         """
-            Update any field from given data
+        Update any field from given data
 
-            Returns: Record, Status
+        Returns: Record, Status
         """
         try:
             record = MyModel.objects.get(id=id)
@@ -91,11 +96,12 @@ class MyService():
             print(e)
             return None, status.HTTP_500_INTERNAL_SERVER_ERROR
 
+    @staticmethod
     def delete(*, id: str):
         """
-            Delete by id
+        Delete by id
 
-            Returns: Status
+        Returns: Status
         """
         try:
             record = MyModel.objects.get(id=id)

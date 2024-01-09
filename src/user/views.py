@@ -6,6 +6,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework_simplejwt.views import TokenObtainPairView
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
+from django.http.request import QueryDict
 
 ##################
 # Authentication #
@@ -35,13 +36,16 @@ class RegisterView(APIView):
                 status=status.HTTP_400_BAD_REQUEST,
             )
         try:
-            User.objects.create_user(**request.data)
+            user_data = request.data.copy()
+            # Test case
+            if isinstance(user_data, QueryDict):
+                user_data = user_data.dict()
+            User.objects.create_user(**user_data)
             return Response(
                 {"message": "User created successfully"}, status=status.HTTP_201_CREATED
             )
         except Exception as e:
-            print(type(e))
-            print(e)
+            print(type(e), e)
             return Response(
                 {"error": str(e)},
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR,
